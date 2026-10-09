@@ -28,6 +28,9 @@ npm install
 cp .env.example apps/api/.env
 ```
 
+`npm install` active aussi le hook Git `pre-commit` (husky), qui lance `npm run check` avant
+chaque commit.
+
 ## Lancement
 
 ```bash
