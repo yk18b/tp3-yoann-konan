@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+*.db
+*.db-journal
+apps/api/uploads/*
+!apps/api/uploads/.gitkeep
+playwright-report/
+test-results/
+.claude/settings.local.json
+.DS_Store
