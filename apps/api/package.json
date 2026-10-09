@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "fastify": "^5.12.5"
+    "argon2": "^0.45.1",
+    "fastify": "^5.12.5",
+    "sharp": "^0.35.5"
   },
   "scripts": {
     "dev": "node --watch --env-file-if-exists=.env src/server.ts",

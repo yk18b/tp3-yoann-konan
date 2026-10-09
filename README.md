@@ -31,6 +31,11 @@ cp .env.example apps/api/.env
 `npm install` active aussi le hook Git `pre-commit` (husky), qui lance `npm run check` avant
 chaque commit.
 
+Seules les dépendances listées dans `allowScripts` (`package.json`) sont autorisées à exécuter
+des scripts d'installation (aujourd'hui `argon2`, pour charger son binaire natif). Après une
+montée de version d'une de ces dépendances, relire son script puis lancer
+`npm approve-scripts <paquet>` (voir `docs/decisions/007-scripts-installation.md`).
+
 ## Lancement
 
 ```bash
