@@ -10,11 +10,11 @@ note de 1 à 5, un avis et une photo, uniquement dans une zone déjà dévoilée
 
 ## Stack
 
-| Côté    | Technologies                                                        |
-| ------- | ------------------------------------------------------------------- |
-| Front   | React, TypeScript, Vite, MapLibre GL (tuiles OpenFreeMap), h3-js, PWA |
-| Back    | Node 24, Fastify, TypeScript, SQLite + Drizzle, argon2, sharp       |
-| Tests   | Vitest (unitaires, API), Playwright (e2e)                           |
+| Côté  | Technologies                                                          |
+| ----- | --------------------------------------------------------------------- |
+| Front | React, TypeScript, Vite, MapLibre GL (tuiles OpenFreeMap), h3-js, PWA |
+| Back  | Node 24, Fastify, TypeScript, SQLite + Drizzle, argon2, sharp         |
+| Tests | Vitest (unitaires, API), Playwright (e2e)                             |
 
 ## Prérequis
 
