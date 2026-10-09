@@ -28,10 +28,18 @@ npm install
 cp .env.example apps/api/.env
 ```
 
-## Lancement _(à venir)_
+## Lancement
 
 ```bash
-npm run dev        # API sur :3000 + front sur :5173
+npm run dev        # API sur :3000 + front sur :5173 (proxy /api → :3000)
+```
+
+## Vérifications
+
+```bash
+npm run check      # format + lint + typecheck + tests unitaires
+npx playwright install chromium   # une seule fois
+npm run e2e        # tests de bout en bout
 ```
 
 ## Mode simulation GPS _(à venir)_
@@ -53,6 +61,7 @@ apps/api         API Fastify + SQLite
 packages/shared  schémas, constantes H3, frontières de Paris (partagés front/back)
 e2e/             tests Playwright
 docs/            architecture, décisions (ADR), plans de fonctionnalités
+.claude/         règles et agents pour Claude Code (voir CLAUDE.md)
 captures/        captures d'écran de l'application
 ```
 
