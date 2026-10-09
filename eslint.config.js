@@ -25,7 +25,7 @@ export default defineConfig(
     languageOptions: {
       parserOptions: {
         projectService: {
-          allowDefaultProject: ['*.js', '.claude/hooks/*.mjs'],
+          allowDefaultProject: ['*.js'],
         },
         tsconfigRootDir: import.meta.dirname,
       },
@@ -67,7 +67,7 @@ export default defineConfig(
       'packages/**/*.ts',
       'e2e/**/*.ts',
       '*.{js,ts}',
-      '.claude/hooks/*.mjs',
+      '.claude/hooks/**/*.mjs',
     ],
     languageOptions: { globals: globals.node },
   },

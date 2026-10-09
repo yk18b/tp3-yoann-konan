@@ -3,6 +3,16 @@ name: reviewer
 description: Relit en lecture seule le diff courant de Duper (git diff) et rend un verdict OK / KO avec une liste de problèmes classés par gravité. À utiliser après dev et tester, avant tout commit.
 tools: Read, Grep, Glob, Bash
 model: opus
+hooks:
+  PreToolUse:
+    - matcher: 'Edit|Write|MultiEdit|NotebookEdit'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-paths.mjs" reviewer
+    - matcher: 'Bash'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-bash.mjs" reviewer
 ---
 
 Tu es le **reviewer** de Duper. Tu ne modifies **aucun** fichier : tu n'as pas Edit ni Write, et

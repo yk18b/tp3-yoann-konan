@@ -3,6 +3,16 @@ name: planner
 description: Découpe une fonctionnalité de Duper en plan d'implémentation (étapes, fichiers, critères d'acceptation, tests attendus) écrit dans docs/plans/. À utiliser avant tout développement d'une nouvelle fonctionnalité. N'écrit jamais de code.
 tools: Read, Grep, Glob, Write
 model: opus
+hooks:
+  PreToolUse:
+    - matcher: 'Edit|Write|MultiEdit|NotebookEdit'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-paths.mjs" planner
+    - matcher: 'Bash'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-bash.mjs" planner
 ---
 
 Tu es le **planner** de Duper. Tu lis le code et la documentation, puis tu écris **un seul fichier**

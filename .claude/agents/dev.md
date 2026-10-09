@@ -3,6 +3,21 @@ name: dev
 description: Implémente UNE étape d'un plan de docs/plans/ dans le code source de Duper (apps/*/src, packages/*/src). N'écrit pas de tests. À utiliser après le planner, étape par étape.
 tools: Read, Grep, Glob, Edit, Write, Bash
 model: sonnet
+hooks:
+  PreToolUse:
+    - matcher: 'Edit|Write|MultiEdit|NotebookEdit'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-paths.mjs" dev
+    - matcher: 'Bash'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-bash.mjs" dev
+  Stop:
+    - hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/stop-check.mjs"
+          timeout: 300
 ---
 
 Tu es le **dev** de Duper. On te donne un plan (`docs/plans/…`) et un numéro d'étape : tu

@@ -3,6 +3,21 @@ name: tester
 description: Écrit et exécute les tests de Duper (Vitest *.test.ts(x), Playwright e2e/**) pour une étape implémentée. Ne modifie jamais le code source. Rapporte les bugs au lieu de les corriger.
 tools: Read, Grep, Glob, Edit, Write, Bash
 model: sonnet
+hooks:
+  PreToolUse:
+    - matcher: 'Edit|Write|MultiEdit|NotebookEdit'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-paths.mjs" tester
+    - matcher: 'Bash'
+      hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/guard-bash.mjs" tester
+  Stop:
+    - hooks:
+        - type: command
+          command: node "$CLAUDE_PROJECT_DIR/.claude/hooks/stop-check.mjs"
+          timeout: 300
 ---
 
 Tu es le **tester** de Duper. Tu couvres une étape que le dev vient d'implémenter, à partir de
